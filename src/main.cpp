@@ -1,4 +1,5 @@
 #include "children.h"
+#include "education.h"
 #include "entertainment.h"
 #include "news.h"
 #include "show.h"
@@ -21,7 +22,10 @@ int main() {
     // clang-format on
 
     shows.push_back(new RacingSports("F1", {"Biden", "Trump"}));
+
     shows.push_back(new ChildrensShow("NameHere", 666));
+
+    shows.push_back(new EducationalShow("The Education Channel", {}, 333));
 
     for (auto &x : shows) {
         x->print_all();
