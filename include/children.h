@@ -1,10 +1,14 @@
 #pragma once
 
-#include "tvchannel.h"
+#include "show.h"
 
-class ChildrenChannel : public TVChannel {
+class ChildrensShow : public Show {
+  private:
+    int some_data;
+
   public:
-    ChildrenChannel(const char *name);
-    AgeRestriction is_age_restricted() override;
+    ChildrensShow(const char *name, int some_data);
+
+    virtual void print_all() override;
 };
 

@@ -1,14 +1,17 @@
 #pragma once
 
-#include "tvchannel.h"
+#include <iostream>
 
-class EntertainmentChannel : public TVChannel {
+#include "show.h"
+
+class EntertainmentShow : public Show {
   protected:
-    AgeRestriction age_restriction;
+    std::optional<std::string> cinematic_universe;
 
   public:
-    EntertainmentChannel(const char *name, AgeRestriction age_restriction);
+    EntertainmentShow(const char *name,
+                      std::optional<std::string> cinematic_universe,
+                      AgeRestriction age_restriction);
 
-    AgeRestriction is_age_restricted() override;
+    virtual void print_all() override;
 };
-

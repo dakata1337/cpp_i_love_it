@@ -1,21 +1,13 @@
 #pragma once
 
-#include "tvchannel.h"
+#include "show.h"
 
-class NewsChannel : public TVChannel {
-  public:
-    NewsChannel(const char *name);
-    AgeRestriction is_age_restricted() override;
-};
+class News : public Show {
+  private:
+    std::string other_field;
 
-class DomesticNewsChannel : public NewsChannel {
   public:
-    DomesticNewsChannel(const char *name);
-    AgeRestriction is_age_restricted() override;
-};
+    News(const char *name, const char *other_field);
 
-class InternationalNewsChannel : public NewsChannel {
-  public:
-    InternationalNewsChannel(const char *name);
-    AgeRestriction is_age_restricted() override;
+    virtual void print_all() override;
 };

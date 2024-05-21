@@ -8,12 +8,12 @@ project('kursova2', 'cpp',
 
 inc = include_directories('include')
 src = [
-  'src/main.cpp',
+  './src/main.cpp',
   './src/news.cpp',
+  './src/show.cpp',
   './src/sports.cpp',
   './src/children.cpp',
-  './src/tvchannel.cpp',
-  './src/educational.cpp',
+  './src/education.cpp',
   './src/entertainment.cpp',
 ]
 

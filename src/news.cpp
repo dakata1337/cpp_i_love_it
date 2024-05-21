@@ -1,19 +1,13 @@
+#include <iostream>
+
 #include "news.h"
 
-NewsChannel::NewsChannel(const char *name) : TVChannel(name) {
-}
-AgeRestriction NewsChannel::is_age_restricted() {
-    return {};
+News::News(const char *name, const char *other_field) : Show(name) {
+    this->other_field = std::string(other_field);
 }
 
-DomesticNewsChannel::DomesticNewsChannel(const char *name) : NewsChannel(name) {
-}
-AgeRestriction DomesticNewsChannel::is_age_restricted() {
-    return {};
-}
+void News::print_all() {
+    Show::print_all();
 
-InternationalNewsChannel::InternationalNewsChannel(const char *name) : NewsChannel(name) {
-}
-AgeRestriction InternationalNewsChannel::is_age_restricted() {
-    return {};
+    std::cout << "  other_field: " << other_field << std::endl;
 }

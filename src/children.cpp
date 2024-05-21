@@ -1,7 +1,13 @@
+#include <iostream>
+
 #include "children.h"
 
-ChildrenChannel::ChildrenChannel(const char *name) : TVChannel(name) {
+ChildrensShow::ChildrensShow(const char *name, int some_data) : Show(name) {
+    this->some_data = some_data;
 }
-AgeRestriction ChildrenChannel::is_age_restricted() {
-    return {};
+
+void ChildrensShow::print_all() {
+    Show::print_all();
+
+    std::cout << "  some_data: " << some_data << std::endl;
 }

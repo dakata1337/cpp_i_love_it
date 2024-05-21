@@ -1,38 +1,30 @@
-#include <iostream>
-#include <vector>
-
 #include "children.h"
-#include "educational.h"
 #include "entertainment.h"
 #include "news.h"
+#include "show.h"
 #include "sports.h"
 
-template <typename T> std::string pretty_optional(std::optional<T> opt) {
-    if (opt.has_value()) {
-        auto val = std::to_string(opt.value());
-        return "Some(\x1b[32m" + val + "\x1b[0m)";
-    }
-    return "None";
-}
-
 int main() {
-    std::vector<TVChannel *> channels;
-    channels.push_back(new EntertainmentChannel("Generic Comedy Channel",
-                                                std::make_optional(18)));
-    channels.push_back(new ChildrenChannel("CN"));
-    channels.push_back(new SportsChannel("Generic Sports Channel"));
-    channels.push_back(new DomesticNewsChannel("bTV"));
-    channels.push_back(new InternationalNewsChannel("CNN"));
-    channels.push_back(new InternationalNewsChannel("RT"));
-    channels.push_back(
-        new EducationalChannel("National Geographic", std::make_optional(12)));
+    std::vector<Show *> shows;
+    shows.push_back(
+        new EntertainmentShow("Deadpool", "Marvel", std::make_optional(18)));
 
-    for (auto &ch : channels) {
-        printf("\x1b[1;4m%s\x1b[0m:\n", ch->getChannelName().c_str());
+    shows.push_back(new News("bTV", "information about the show"));
 
-        std::cout << "  age restriction: "
-                  << pretty_optional(ch->is_age_restricted()) << std::endl;
+    // clang-format off
+    shows.push_back(new ESports("CS2 Major", {
+           ESportsTeam("USA", {"Joe", "Biden", "OBAMNA", "SOOODAAA", "OrangeMan"}),
+           ESportsTeam("Russia", {"Putler", "Gorbachov", "Stallin", "Lennin", "Worker #453"}),
+        }, 
+        std::make_optional(18)
+    ));
+    // clang-format on
+
+    shows.push_back(new RacingSports("F1", {"Biden", "Trump"}));
+    shows.push_back(new ChildrensShow("NameHere", 666));
+
+    for (auto &x : shows) {
+        x->print_all();
     }
-
     return 0;
 }
