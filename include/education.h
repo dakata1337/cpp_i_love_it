@@ -3,12 +3,11 @@
 #include "show.h"
 
 class EducationalShow : public Show {
-  private:
-    int internal_value;
+  protected:
+    int episode;
 
   public:
-    EducationalShow(const char *name, AgeRestriction age_restriction,
-                    int internal_value);
+    EducationalShow(const char *name, int age_restriction, int episode);
 
     virtual void print_all() override;
 };

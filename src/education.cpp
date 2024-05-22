@@ -2,15 +2,13 @@
 
 #include "education.h"
 
-EducationalShow::EducationalShow(const char *name,
-                                 AgeRestriction age_restriction,
-                                 int internal_value)
+EducationalShow::EducationalShow(const char *name, int age_restriction,
+                                 int episode)
     : Show(name, age_restriction) {
-    this->internal_value = internal_value;
+    this->episode = episode;
 }
 
 void EducationalShow::print_all() {
     Show::print_all();
-
-    std::cout << "  internal value: " << internal_value << std::endl;
+    std::cout << "  episode: " << episode << std::endl;
 }

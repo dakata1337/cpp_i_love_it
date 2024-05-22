@@ -2,17 +2,18 @@
 
 #include <iostream>
 
-Show::Show(const char *name, AgeRestriction age_restriction) {
+Show::Show(const char *name, int age_restriction) {
     this->name = std::string(name);
     this->age_restriction = age_restriction;
 }
 
-AgeRestriction Show::has_age_restriction() {
+int Show::get_age_restriction() {
     return this->age_restriction;
 }
 
 void Show::print_all() {
-    std::cout << "\x1b[1;4m" << name << "\x1b[0m" << std::endl;
-    std::cout << "  age restriction: " << pretty_optional(has_age_restriction())
-              << std::endl;
+    std::cout << name << std::endl;
+    if (age_restriction != 0) {
+        std::cout << "  age restriction: " << age_restriction << std::endl;
+    }
 }

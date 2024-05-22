@@ -3,7 +3,7 @@
 #include "show.h"
 
 class ChildrensShow : public Show {
-  private:
+  protected:
     int some_data;
 
   public:

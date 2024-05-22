@@ -3,11 +3,11 @@
 #include "show.h"
 
 class News : public Show {
-  private:
-    std::string other_field;
+  protected:
+    std::string country;
 
   public:
-    News(const char *name, const char *other_field);
+    News(const char *name, const char *country);
 
     virtual void print_all() override;
 };

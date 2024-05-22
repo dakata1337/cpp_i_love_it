@@ -14,6 +14,8 @@ src = [
   './src/sports.cpp',
   './src/children.cpp',
   './src/education.cpp',
+  './src/education_history.cpp',
+  './src/educational_science.cpp',
   './src/entertainment.cpp',
 ]
 
