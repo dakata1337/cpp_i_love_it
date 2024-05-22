@@ -9,14 +9,13 @@ project('kursova2', 'cpp',
 inc = include_directories('include')
 src = [
   './src/main.cpp',
-  './src/news.cpp',
-  './src/show.cpp',
-  './src/sports.cpp',
-  './src/children.cpp',
-  './src/education.cpp',
-  './src/education_history.cpp',
-  './src/educational_science.cpp',
-  './src/entertainment.cpp',
+  './src/music.cpp',
+  './src/classical.cpp',
+  './src/pop.cpp',
+  './src/folk.cpp',
+  './src/rock.cpp',
+  './src/softrock.cpp',
+  './src/hardrock.cpp',
 ]
 
 deps = [

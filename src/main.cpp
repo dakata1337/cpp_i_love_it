@@ -1,28 +1,26 @@
-#include "children.h"
-#include "education.h"
-#include "education_history.h"
-#include "education_science.h"
-#include "entertainment.h"
+#include <cstdio>
+
+#include "classical.h"
+#include "folk.h"
+#include "hardrock.h"
 #include "linkedlist.h"
-#include "news.h"
-#include "show.h"
-#include "sports.h"
+#include "pop.h"
+#include "softrock.h"
 
 int main() {
-    LinkedList<Show *> shows;
-    shows.push_back(new News("StaraTV", "Bulgaria"));
-    shows.push_back(new ChildrensShow("NameHere", 666));
-    shows.push_back(new Sports("World Cup", "Football"));
-    shows.push_back(new EducationalShow("The Education Channel", {}, 333));
-    shows.push_back(new HistoryShow("Disecting WW2", 3, "WW2"));
-    shows.push_back(new ScienceShow("Myth Busters", 52, "Physics"));
-    shows.push_back(new EntertainmentShow("Gru & Minions", "Warner Brothers", 12));
+    LinkedList<Music *> music;
 
-    int i = 1;
-    for (auto x = shows.begin(); x; x = x->get_next()) {
-        printf("%d. ", i++);
-        x->get_data()->print_all();
-        printf("\n");
+    music.push_back(new Music("Pesen"));
+    music.push_back(new Classical("Imperial March", "Vienna Philharmonic"));
+    music.push_back(new Pop("Mothership", "English"));
+    music.push_back(new Folk("Излел е Дельо хайдутин", "Rodopa"));
+    music.push_back(new SoftRock("Heart of Gold", "Neil Young", 1972));
+    music.push_back(new HardRock("Back in black", "AC/DC", true));
+
+    auto ptr = music.begin();
+    while (ptr) {
+        ptr->data->print_virtual();
+        ptr = ptr->next;
     }
     return 0;
 }

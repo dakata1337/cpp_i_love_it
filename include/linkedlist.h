@@ -11,13 +11,6 @@ template <typename T> class Node {
         this->data = data;
         this->next = nullptr;
     }
-
-    T &get_data() {
-        return data;
-    }
-    Node<T> *get_next() {
-        return next;
-    }
 };
 
 template <typename T> class LinkedList {
@@ -34,13 +27,13 @@ template <typename T> class LinkedList {
     }
 
     void push_back(T data) {
-        auto newNode = new Node<T>(data);
+        auto new_data = new Node<T>(data);
 
-        if (!this->head) {
-            this->head = this->tail = newNode;
+        if (!head) {
+            head = tail = new_data;
         } else {
-            this->tail->next = newNode;
-            this->tail = newNode;
+            tail->next = new_data;
+            tail = new_data;
         }
     }
 };
